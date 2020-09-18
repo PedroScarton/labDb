@@ -3,8 +3,9 @@ const User = require('../models/user');
 exports.getUsers = (req, res, next) => {
     User.fetchAll()
         .then(users => {
-            res.render('user/', {
+            res.render('user', {
                 users: users,
+                user: null,
                 pageTitle: 'List of users',
                 path: '/user'
             });
@@ -18,7 +19,7 @@ exports.getUser = (req, res, next) => {
     const userId = req.params.userId;
     User.findById(userId)
         .then(user => {
-            res.render('shop/product-detail', {
+            res.render('user', {
                 user: user,
                 pageTitle: 'List of users',
                 path: '/user'
@@ -33,10 +34,8 @@ exports.postAddUser = (req, res, next) => {
     const userId = req.params.userId;
     const nickName = req.body.nickName;
     const name = req.body.name;
-    const profileImageURL = req.body.profileImageURL;
-    const description = req.body.description;
     const phone = req.body.phone;
-    const user = new User(nickName, name, profileImageURL, description, phone, userId);
+    const user = new User(nickName, name, phone, userId);
     user.save()
         .then(response => {
             res.redirect('/user');
@@ -57,7 +56,7 @@ exports.getEditUser = (req, res, next) => {
             if (!user) {
                 return res.redirect('/');
             }
-            res.render('user/edit-user', {
+            res.render('user', {
                 pageTitle: 'Edit user',
                 path: '/user/edit-user',
                 editing: editMode,

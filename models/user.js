@@ -1,11 +1,9 @@
-const getDb = require('../util/database').getDb;
+const getDb = require('../utils/database').getDb;
 
 class User {
-  constructor(nickName, name, profileImageURL, description, phone, id) {
+  constructor(nickName, name, phone, id) {
     this.nickName = nickName;
     this.name = name;
-    this.profileImageURL = profileImageURL;
-    this.description = description;
     this.phone = phone;
     this._id =  id ? new mongodb.ObjectId(id) : null;
   }

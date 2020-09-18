@@ -1,0 +1,26 @@
+<section class="section__form-container">
+    <form action="/user/add-user" method="POST">
+        <div class="section__form-input-container">
+            <div class="input__input-container">
+                <label for="apodo">Apodo:</label>
+                <input type="text" name="nickName" placeholder="Ej: Chico Perez" id="nickName">
+            </div>
+            <div class="input__input-container">
+                <label for="apellido">Nombre completo:</label>
+                <input type="text" name="name" placeholder="Ej: Juan Perez" id="name">
+            </div>
+            <div class="input__input-container">
+                <label for="telefono">Número:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">+56 9</div>
+                    </div>
+                    <input type="text" name="phone" class="form-control" id="phone">
+                </div>
+            </div>
+        </div>
+        <div class="centered">
+            <button type="submit" class="boton">Registrar</button>
+        </div>
+    </form>
+</section>

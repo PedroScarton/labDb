@@ -10,3 +10,5 @@ router.post('/add-user', UserController.postAddUser);
 router.get('/edit-user/:userId', UserController.getEditUser);
 router.post('/edit-user', UserController.postEditUser);
 router.post('/delete-user', UserController.postDeleteUser);
+
+module.exports = router;

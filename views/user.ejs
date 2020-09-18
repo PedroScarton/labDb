@@ -1,0 +1,38 @@
+<%- include('./includes/head.ejs') %>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="list-group rounded-lg w-100">
+                    <% users.forEach(user => { %>
+                    <li class="list-group-item bg-light p-0 pl-4">
+                        <form accept="/get-individual-user" method="POST">
+                            <input type="hidden" value="<%= user._id %>" name="userId">
+                            <button class="btn btn-light w-100 text-left" type="submit">
+                                <%= user.nickName %> 
+                            </button>
+                        </form>
+                    </li>
+                    <% }) %>
+                </ul>
+            </div>
+            <% if (user) { %>
+             
+            <% } else { %>
+                <div class="col">
+                    <aside class="w-100">
+                      <h2>Datos del contacto</h2>
+                      <p>Apodo</p>
+                      <p>Nombre Completo</p>
+                      <p>Número de Teléfono</p>
+                      <div class="btn-group">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                      </div>
+                  </aside>
+                </div>
+            <% } %> 
+            
+        </div>
+    </div>
+</main>
+<%- include('./includes/end.ejs') %>
